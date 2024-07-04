@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package auth;
+
+option go_package = "auth.v1;auth";
+
+service Auth{
+  rpc Register(RegisterRequest) returns (RegisterResponse);
+  rpc Login(LoginRequest) returns (LoginResponse);
+  rpc VerifyQR(VerifyRequest) returns (VerifyResponse);
+}
+
+message RegisterRequest{
+  string name = 1;
+  string surname = 2;
+  string login = 3;
+  string password = 4;
+  string mail = 5;
+}
+
+message RegisterResponse{
+  bool ok = 1;
+  int64 uid = 2;
+}
+
+message LoginRequest{
+  string login = 1;
+  string password = 2;
+}
+
+message LoginResponse{
+  bool ok = 1;
+  int64 uid = 2;
+  string code = 3;
+}
+
+message VerifyRequest{
+  string username = 1;
+  string code = 2;
+}
+
+message VerifyResponse{
+  int64 uid = 1;
+  string jwt = 2;
+}
