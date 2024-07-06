@@ -19,8 +19,7 @@ message RegisterRequest{
 }
 
 message RegisterResponse{
-  bool ok = 1;
-  int64 uid = 2;
+  int64 uid = 1;
 }
 
 message LoginRequest{
@@ -29,9 +28,8 @@ message LoginRequest{
 }
 
 message LoginResponse{
-  bool ok = 1;
-  int64 uid = 2;
-  string code = 3;
+  int64 uid = 1;
+  string code = 2;
 }
 
 message VerifyRequest{
