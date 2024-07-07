@@ -30,6 +30,7 @@ message LoginRequest{
 
 message LoginResponse{
   int64 uid = 1;
+  bool enable = 2;
 }
 
 message GenerateRequest{
